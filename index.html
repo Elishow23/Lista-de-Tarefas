@@ -12,12 +12,15 @@
         <h1>LISTA DE TAREFAS</h1>
     </header>
     <main>
-            <div>
+        <section>
+            <div></div>
                 <h2>CRIAR TAREFAS</h2>
                 <input type="text" placeholder="Digite o nome da tarefa" id="titulo-tarefa">
                 <button onclick="adicionar()">ADICIONAR</button>
             </div>
-            <div class="area-listas">
+        </section>
+        <section>
+            <div class="area-listas"></div>
                 <div>
                     <h2>TAREFAS CRIADAS</h2>
                     <input type="text" placeholder="Pesquisar tarefas" id="input-pesquisa">
@@ -30,39 +33,19 @@
                     <button>FILTRAR</button>
                 </div>
                 <h2>LISTAS</h2>
-                <div class="resultado-pesquisa">
-                    <div class="barra-lista">
-                        <input type="checkbox" id="statusTarefa">
-                        <label for="statusTarefa">NOME DA TAREFA</label>
-                        <button>EDITAR</button>
-                        <button>EXCLUIR</button>
-                    </div>
-                    <div class="barra-lista">
-                        <input type="checkbox" id="statusTarefa">
-                        <label for="statusTarefa">NOME DA TAREFA</label>
-                        <button>EDITAR</button>
-                        <button>EXCLUIR</button>
-                    </div>
-                    <div class="barra-lista">
-                        <input type="checkbox" id="statusTarefa">
-                        <label for="statusTarefa">NOME DA TAREFA</label>
-                        <button>EDITAR</button>
-                        <button>EXCLUIR</button>
-                    </div>
-                    <div class="barra-lista">
-                        <input type="checkbox" id="statusTarefa">
-                        <label for="statusTarefa">NOME DA TAREFA</label>
-                        <button>EDITAR</button>
-                        <button>EXCLUIR</button>
-                    </div>
-                    <div class="barra-lista">
-                        <input type="checkbox" id="statusTarefa">
-                        <label for="statusTarefa">NOME DA TAREFA</label>
-                        <button>EDITAR</button>
-                        <button>EXCLUIR</button>
-                    </div>
-                </div>
+                <section class="resultado-pesquisa" id="select-barra">
+                   <!--
+                        <div class="barra-lista">
+                            <input type="checkbox" id="statusTarefa">
+                            <label for="statusTarefa">NOME DA TAREFA</label>
+                            <button>EDITAR</button>
+                            <button>EXCLUIR</button>
+                        </div>
+                   -->
+                </section>
             </div>
+        </section>
+            
     </main>
     <footer>
         <h1>Eliseu Dev</h1>
