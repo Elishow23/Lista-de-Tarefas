@@ -1,58 +1,90 @@
-class tarefa{
-    constructor(titulo, status){
-        this.titulo = titulo
-        this.status = status
-    }
-
-}
-
-function adicionar(){
-
-    let section = document.getElementById("select-barra")
-    let titulo = document.getElementById("titulo-tarefa").value
-    
-    const tar = new tarefa(titulo, )
-
-    lista.push(tar.titulo, tar.status)
-    console.log(lista)
-
-    let barra = ''
-
-    for(let listas of lista){
-         
-        barra += `<div class="barra-lista" >
-                    <input type="checkbox" id="statusTarefa">
-                    <label for="statusTarefa">${listas}</label>
-                </div>`
-    }
+function adicionar() {
+    /**
+     * Adiciona uma nova tarefa à lista e atualiza a interface.
+     */
+    let section = document.getElementById("select-barra"); // Seletor da seção onde a lista será exibida.
+    let titulo = document.getElementById("titulo-tarefa").value; // Obtém o título da tarefa do input.
 
 
-    section.innerHTML = barra;
 
-}
+    const tar = new Tarefa(titulo); // Cria um novo objeto tarefa.
+    lista.push(tar); // Adiciona a tarefa à lista.
 
-function excluirTarefa(){
+    /*for (let listas of lista){
+      console.log(listas);
 
-    //let section = document.getElementById("select-barra")
-    let status = document.getElementById("statusTarefa")
-
-    if(status.checked){
-        console.log(1)
-    }else{
-       console.log(0)
-    }
-
-    /*let barra = ''
-
-    for(let listas of lista){
-         
-        barra += `<div class="barra-lista" >
-                        <input type="checkbox" id="statusTarefa">
-                        <label for="statusTarefa">${listas}</label>
-                </div>`
     }*/
 
+    let barra = ''; // String para armazenar o HTML da lista.
 
-    //section.innerHTML = barra;
+    for (let listas of lista) {
+        barra += `
+            <div class="barra-lista">
+                <input type="checkbox" id="${listas.id}" onclick="verificarCheckboxes()"> 
+                <label id="titulo">${listas.titulo}</label>
+                <label id="id">${listas.id}</label>
+            </div>
+        `;
+    }
 
+    section.innerHTML = barra; // Atualiza o HTML da seção com a nova lista.*/
 }
+
+function verificarCheckboxes() {
+    // Seleciona todos os checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const marcados = [];
+    const naoMarcados = [];
+  
+    // Itera sobre cada checkbox
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        marcados.push(checkbox.id); // Adiciona o valor ou ID ao array de marcados
+      } else {
+        naoMarcados.push(checkbox.id); // Adiciona o valor ou ID ao array de não marcados
+      }
+    });
+  
+    
+
+    return marcados;
+    
+  }
+
+  function excluirTarefa(){
+
+    let section = document.getElementById("select-barra"); // Seletor da seção onde a lista será exibida.
+
+  let marcados = verificarCheckboxes();
+    
+  for(let ma of marcados){
+    for(let listas of lista){
+      if(listas.id == ma){
+        console.log("excluir", listas.titulo)
+        const indice = lista.findIndex(lista => lista.id === listas.id);
+        lista.splice(indice, 1);
+      }
+    }
+  }
+     
+  let barra = ''; // String para armazenar o HTML da lista.
+
+    for (let listas of lista) {
+        barra += `
+            <div class="barra-lista">
+                <input type="checkbox" id="${listas.id}" onclick="verificarCheckboxes()"> 
+                <label id="titulo">${listas.titulo}</label>
+                <label id="id">${listas.id}</label>
+            </div>
+        `;
+    }
+
+    section.innerHTML = barra; // Atualiza o HTML da seção com a nova lista.*/
+
+
+  }
+
+
+    
+  
+      
