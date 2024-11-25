@@ -1,8 +1,9 @@
 let contadorId = 1;
 
 class Tarefa {
-    constructor(titulo) {
-      this.titulo = titulo;
+    constructor(titulo, situacao) {
       this.id = contadorId++;
+      this.titulo = titulo;
+      this.situacao = situacao;
     }
   }

@@ -34,6 +34,11 @@
                 </div>
                 <h2>LISTAS</h2>
                 <section class="resultado-pesquisa" id="select-barra">
+                    <!--<div class="barra-lista">
+                        <input type="text" placeholder="Digite o nome da tarefa" id="titulo-tarefa">
+                        <button onclick="adicionar()">ADICIONAR</button>
+                      </div> -->
+
                    <!--
                         <div class="barra-lista">
                             <input type="checkbox" id="statusTarefa">
@@ -41,7 +46,8 @@
                         </div>
                    -->
                 </section>
-                <button>EDITAR</button>
+                <button onclick="editar()" >EDITAR</button>
+                <button onclick="concluirTarefa()" >CONCLUIR</button>
                 <button onclick="excluirTarefa()">EXCLUIR</button>
             </div>
         </section>
