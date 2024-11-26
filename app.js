@@ -113,7 +113,7 @@ function verificarCheckboxes() {
 
     //muda o status da tarefa para concluido e coloca no final da lista
     for (let ex of excluidos){
-      ex.situacao = 'Concluido'
+      ex.situacao = 'Concluida'
       lista.push(ex);
     }
 
@@ -122,12 +122,33 @@ function verificarCheckboxes() {
     atualizarLista()
   }
 
+  /*function filtrar(){
+    let filtro = document.getElementById("filtro").value;
+
+
+
+      if(filtro != 'Todas'){
+        for(let listas of lista){
+          if(listas.situacao == filtro){
+            console.log(listas.titulo);
+          }
+        }
+     }else{
+        atualizarLista()
+      }
+    
+    //console.log(filtro);
+  }*/
+
   function atualizarLista(){
     let section = document.getElementById("select-barra"); // Seletor da seção onde a lista será exibida.
+    let filtro = document.getElementById("filtro").value //pega valor do filtro
 
     let barra = ''; // String para armazenar o HTML da lista.
 
     for (let listas of lista) {
+
+      if(filtro == 'Todas'){
         barra += `
             <div class="barra-lista">
                 <input type="checkbox" id="${listas.id}" onclick="verificarCheckboxes()"> 
@@ -136,6 +157,16 @@ function verificarCheckboxes() {
                 <label id="situacao">${listas.situacao}</label>
             </div>
         `;
+      }else if(filtro == listas.situacao){
+            barra += `
+            <div class="barra-lista">
+                <input type="checkbox" id="${listas.id}" onclick="verificarCheckboxes()"> 
+                <label id="id">${listas.id}</label>
+                <label id="titulo">${listas.titulo}</label>
+                <label id="situacao">${listas.situacao}</label>
+            </div>
+        `;
+      } 
     }
 
     section.innerHTML = barra; // Atualiza o HTML da seção com a nova lista.*/

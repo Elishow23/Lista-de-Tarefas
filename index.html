@@ -25,12 +25,12 @@
                     <h2>TAREFAS CRIADAS</h2>
                     <input type="text" placeholder="Pesquisar tarefas" id="input-pesquisa">
                     <button>PESQUISAR</button>
-                    <select>
-                        <option value="todas">Todas</option>
-                        <option value="concluida">Concluida</option>
-                        <option value="pendente">Pendente</option>
+                    <select id="filtro">
+                        <option value="Todas">Todas</option>
+                        <option value="Concluida">Concluida</option>
+                        <option value="Pendente">Pendente</option>
                     </select>
-                    <button>FILTRAR</button>
+                    <button onclick="atualizarLista()">FILTRAR</button>
                 </div>
                 <h2>LISTAS</h2>
                 <section class="resultado-pesquisa" id="select-barra">

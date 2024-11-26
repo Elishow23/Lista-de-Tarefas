@@ -28,11 +28,11 @@ footer {
   /*position: fixed; Posiciona o rodapé fixo na parte inferior da página */
   bottom: 0; /* Alinha o rodapé na parte inferior da página */
   left: 0; /* Alinha o rodapé à esquerda da página */
-  width: 100%; /* Define a largura do rodapé como 100% da largura da página */
+  /*width: 100%; Define a largura do rodapé como 100% da largura da página */
   background-color: #333; /* Define a cor de fundo do rodapé */
   color: white; /* Define a cor do texto do rodapé */
   text-align: center; /* Alinha o texto do rodapé no centro */
-  padding: 40px; /* Adiciona um preenchimento de 40 pixels em todas as direções */
+  padding: 20px; /* Adiciona um preenchimento de 40 pixels em todas as direções */
 }
 
 /* Estiliza os títulos de nível 3 */
