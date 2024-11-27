@@ -9,7 +9,7 @@ function adicionar() {
       console.log(listas);
 
     }*/
-      atualizarLista()
+      filtrar()
 }
 
 function verificarCheckboxes() {
@@ -50,8 +50,7 @@ function verificarCheckboxes() {
     }
   }
 
-  atualizarLista()
-
+    filtrar()
   return excluidos;
 
   }
@@ -93,7 +92,7 @@ function verificarCheckboxes() {
     //atuaiza o titulo da tarefa
     let novoTitulo = document.getElementById("novo-titulo").value
     if(novoTitulo == 0){
-      atualizarLista()
+      atualizarLista(lista)
     }else{
       for (let listas of lista){
       if(listas.id == id){
@@ -102,8 +101,7 @@ function verificarCheckboxes() {
     }
   }
     
-
-    atualizarLista()
+    filtrar()
 
   }
 
@@ -119,55 +117,50 @@ function verificarCheckboxes() {
 
    console.log(excluidos)
 
-    atualizarLista()
+    filtrar()
   }
 
-  /*function filtrar(){
+  function filtrar(){
+    let filtro = document.getElementById("filtro").value;
+
+    let listaFiltrada = [];
+
+    if(filtro == 'Todas'){
+      atualizarLista(lista);
+    }else{
+      for(let tarefa of lista){
+        if(filtro == tarefa.situacao){
+          listaFiltrada.push(tarefa);
+        }
+      }
+      atualizarLista(listaFiltrada)
+    }
+      
+    }
+
+  function atualizarLista(t){
+    let section = document.getElementById("select-barra"); // Seletor da seção onde a lista será exibida.
     let filtro = document.getElementById("filtro").value;
 
 
-
-      if(filtro != 'Todas'){
-        for(let listas of lista){
-          if(listas.situacao == filtro){
-            console.log(listas.titulo);
-          }
-        }
-     }else{
-        atualizarLista()
-      }
-    
-    //console.log(filtro);
-  }*/
-
-  function atualizarLista(){
-    let section = document.getElementById("select-barra"); // Seletor da seção onde a lista será exibida.
-    let filtro = document.getElementById("filtro").value //pega valor do filtro
-
     let barra = ''; // String para armazenar o HTML da lista.
 
-    for (let listas of lista) {
-
-      if(filtro == 'Todas'){
+    if(t == 0){
+      barra = `<p>Não há tarefas ${filtro}</p>`
+    }else{
+      for (let tarefa of t) {
         barra += `
             <div class="barra-lista">
-                <input type="checkbox" id="${listas.id}" onclick="verificarCheckboxes()"> 
-                <label id="id">${listas.id}</label>
-                <label id="titulo">${listas.titulo}</label>
-                <label id="situacao">${listas.situacao}</label>
+                <input type="checkbox" id="${tarefa.id}" onclick="verificarCheckboxes()"> 
+                <label id="id">${tarefa.id}</label>
+                <label id="titulo">${tarefa.titulo}</label>
+                <label id="situacao">${tarefa.situacao}</label>
             </div>
         `;
-      }else if(filtro == listas.situacao){
-            barra += `
-            <div class="barra-lista">
-                <input type="checkbox" id="${listas.id}" onclick="verificarCheckboxes()"> 
-                <label id="id">${listas.id}</label>
-                <label id="titulo">${listas.titulo}</label>
-                <label id="situacao">${listas.situacao}</label>
-            </div>
-        `;
-      } 
+      }
     }
+
+    
 
     section.innerHTML = barra; // Atualiza o HTML da seção com a nova lista.*/
   }
